@@ -1,0 +1,99 @@
+<div class="text-dark bg-white border border-dark py-4 px-4 mb-4" style="--bs-border-opacity: 0.5">
+  <div class="row text-black align-items-center">
+    <div style="max-width: 40px" class="col-1">
+      <i [className]="iconsList && 'text-primary ' + iconsList[0].class" (click)="addShowModal()
+      "></i>
+    </div>
+    <div style="max-width: 40px" class="col-1">
+      <i [className]="iconsList && 'text-success ' + iconsList[7].class" (click)="editShowModal()"></i>
+    </div>
+    <div class="col"><ng-content select="[title]"></ng-content></div>
+  </div>
+  <ng-content select="[content]"></ng-content>
+</div>
+
+<app-dialog
+  *ngIf="toggleModalEdit"
+  (closeModalEvent)="closeModal($event, 'edit')"
+  [title]="titleModal"
+>
+  <div class="contentModal">
+    <form>
+      <div class="mb-3">
+        <label for="" class="form-label">Titulo</label>
+        <input type="text" id="" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="text" class="form-label">Texto</label>
+        <textarea class="form-control" id="text" rows="3"></textarea>
+      </div>
+    </form>
+  </div>
+</app-dialog>
+
+<app-dialog
+  *ngIf="toggleModalAdd"
+  (closeModalEvent)="closeModal($event, 'add')"
+  [title]="titleModalAdd"
+>
+  <div class="contentModal">
+    <form>
+      <div class="mb-3">
+        <label for="" class="form-label">Titulo</label>
+        <input type="text" id="" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="text" class="form-label">Detalle</label>
+        <input type="text" id="" class="form-control">
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <label for="date_start" class="form-label">De: </label>
+          <input type="date" class="form-control" id="date_start" />
+        </div>
+        <div class="col">
+          <label for="date_end" class="form-label">Hasta: </label>
+          <input type="date" class="form-control" id="date_end" />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="link" class="form-label">Enlace: </label>
+        <input type="text" class="form-control" id="link" />
+      </div>
+      <div class="mb-3">
+        <label for="source_code" class="form-label">Codigo fuente: </label>
+        <input type="text" class="form-control" id="source_code" />
+      </div>
+      <!-- Listado de items -->
+      <div>
+        <p class="text-uppercase"><b>Agregar skill</b></p>
+        <div class="mb-3">
+          <label for="name_skill" class="form-label">Nombre de skill: </label>
+          <input type="text" class="form-control" name="name_skill" id="name_skill">
+        </div>
+        <div>
+          <div class="row mb-2">
+            <div class="col">
+              <p>Item 1</p>
+            </div>
+            <div class="col justify-content-end">
+              <button class="btn border border-0">
+                <i [ngStyle]="{'font-size': '14px'}" [className]="iconsList && 'text-danger ' + iconsList[6].class"></i>
+              </button>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col">
+              <p>Item 2</p>
+            </div>
+            <div class="col justify-content-end">
+              <button class="btn border border-0">
+                <i [ngStyle]="{'font-size': '14px'}" [className]="iconsList && 'text-danger ' + iconsList[6].class"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</app-dialog>

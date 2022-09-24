@@ -1,0 +1,119 @@
+<nav class="navbar nav-bar">
+  <div
+    [className]="
+      currentRoute === '/login' ? 'imageCenter container' : 'container'
+    ">
+    <img src="./assets/img/arg-programa.png" class="img-arg" />
+    <div
+      class="d-flex justify-content-end align-items-center box-actions"
+      *ngIf="currentRoute !== '/login'">
+      <div class="d-flex align-items-center justify-content-end">
+        <i
+          *ngIf="isLogged"
+          (click)="addSocialLink(true)"
+          [className]="iconsList && 'text-primary mx-3 ' + iconsList[0].class">
+        </i>
+        <i
+          *ngIf="isLogged"
+          [className]="
+            iconsList && 'text-white mx-2 fs-4 ' + iconsList[2].class
+          "></i>
+        <i
+          *ngIf="isLogged"
+          [className]="
+            iconsList && 'mx-3 fs-4 text-white ' + iconsList[1].class
+          "></i>
+        <button
+          *ngIf="isLogged"
+          type="button"
+          class="btn btn-white rounded-circle border border-0"
+          (click)="showModalEditData(true)">
+          <i
+            [className]="
+              iconsList &&
+              'bg-white px-2 py-2 fs-6 rounded-circle text-dark ' +
+                iconsList[3].class
+            "></i>
+        </button>
+        <a
+          routerLink="/login"
+          routerLinkActive="active"
+          class="btn btn-danger border border-0 text-uppercase"
+          >{{ isLogged ? 'Cerrar Sesión' : 'Iniciar Sesión' }}</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>
+
+<app-dialog
+  *ngIf="toggleMProfileEdit"
+  (closeModalEvent)="closeModal($event, 'profile')"
+  [title]="titleModal">
+  <div class="contentModal">
+    <div class="background-container-userEdit">
+      <h5>Datos del usuario </h5>
+      <form>
+        <div class="mb-3">
+          <label for="formFile" class="form-label"
+            >Cambiar imagen de perfil</label
+          >
+          <input class="form-control" type="file" id="formFile" />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo</label>
+          <input type="email" class="form-control" id="email" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1" />
+        </div>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+      </form>
+    </div>
+    <hr />
+    <form>
+      <small
+        >Estos datos aparecerán en el inicio al lado de la imagen de
+        perfil</small
+      >
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="name" />
+      </div>
+      <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción</label>
+        <textarea class="form-control" id="descripcion" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+  </div>
+</app-dialog>
+
+<app-dialog
+  *ngIf="toggleMSocialAdd"
+  (closeModalEvent)="closeModal($event, 'social')"
+  [title]="titleModalRedes">
+  <div class="contentModal">
+    <div>
+      <div>
+        <p>Enlaces ya agregados:</p>
+        <ul>
+          <li><a href="linkedin.com/">Linkedin</a></li>
+          <li><a href="github.com/">Github</a></li>
+        </ul>
+      </div>
+      <form>
+        <select class="form-select" name="miselect">
+          <option [value]="item.class" *ngFor="let item of iconsSelect">
+            {{ item.name | titlecase }}
+          </option>
+        </select>
+        <button type="submit" class="btn btn-success mt-3">Agregar</button>
+      </form>
+    </div>
+  </div>
+</app-dialog>

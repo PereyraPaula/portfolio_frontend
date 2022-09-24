@@ -1,0 +1,37 @@
+<div class="row my-4">
+  <div class="col d-flex flex-column">
+    <h6 class="text-uppercase">Titulo del proyecto</h6>
+    <small>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</small>
+    <a class="my-2 text-uppercase" href="#" target="_blank">Ver Demo</a>
+  </div>
+  <div class="d-flex flex-row align-items-center my-2">
+    <i [className]="iconsList && 'text-black fs-4 ' + iconsList[1].class"></i>
+    <i [className]="iconsList && 'mx-3 text-success ' + iconsList[7].class" (click)="editShowModal()"></i>
+    <i [className]="iconsList && 'text-danger ' + iconsList[6].class" (click)="deleteShowModal()"></i>
+  </div>
+</div>
+
+<app-dialog 
+  *ngIf="toggleModalEdit"
+  (closeModalEvent)="closeModal($event, 'edit')"
+  [title]="titleModal"
+>
+  <div class="contentModal">
+    <div class="mb-3">
+      <label for="" class="form-label">Titulo</label>
+      <input type="text" id="" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="text" class="form-label">Detalle</label>
+      <input type="text" id="" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="link" class="form-label">Enlace: </label>
+      <input type="text" class="form-control" id="link" />
+    </div>
+    <div class="mb-3">
+      <label for="source_code" class="form-label">Codigo fuente: </label>
+      <input type="text" class="form-control" id="source_code" />
+    </div>
+  </div>
+</app-dialog>

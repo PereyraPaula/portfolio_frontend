@@ -1,0 +1,11 @@
+<div class="row my-2">
+  <div class="col-sm-2">
+    <i class="fa-solid fa-pencil text-success"></i>
+    <i class="fa-solid fa-trash mx-2 text-danger"></i>
+  </div>
+  <ng-content select="[dateBox]"></ng-content>
+  <div class="col-sm flex-grow-1">
+    <ng-content select="[title]"></ng-content>
+    <ng-content select="[subtitle]"></ng-content>
+  </div>
+</div>

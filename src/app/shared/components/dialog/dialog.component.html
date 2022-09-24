@@ -1,0 +1,14 @@
+<div id="container">
+  <div id="header">
+    <h5>{{ title }}</h5>
+  </div>
+  <div id="content">
+    <ng-content select=".contentModal"></ng-content>
+  </div>
+  <div id="actions">
+    <button type="button" class="btn btn-secondary" (click)="closeModal(false)">
+      Cerrar
+    </button>
+    <button type="button" class="btn btn-primary">Guardar Cambios</button>
+  </div>
+</div>

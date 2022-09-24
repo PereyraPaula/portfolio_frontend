@@ -1,0 +1,55 @@
+.nav-bar {
+	background-color: #213159;
+}
+
+.imageCenter {
+	justify-content: center;
+}
+
+.img-arg {
+  height: 70px
+}
+
+i:hover {
+  cursor: pointer;
+}
+
+a.tooltipEditProfile {
+  position: relative ;
+}
+a.tooltipEditProfile:hover::after {
+  content: attr(data-tooltip) ;
+  position: absolute ;
+  top: 1.1em ;
+  left: 0 ;
+  min-width: 200px ;
+  border: 1px #0505052d solid ;
+  padding: 8px ;
+  color: #fff ;
+  background-color: #050505a6;
+  z-index: 1 ;
+	text-align: center;
+	border-radius: 10px;
+}
+
+.background-container-userEdit {
+  background-color: #e7e7e7;
+  padding: 1rem
+}
+
+@media (max-width:576px){
+  .img-arg {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .box-actions {
+    margin: 1rem 0;
+  }
+}
