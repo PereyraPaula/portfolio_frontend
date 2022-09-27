@@ -1,0 +1,34 @@
+<form (ngSubmit)="onSubmit()" *ngIf="showAddTask">
+  <div class="form-control">
+    <label for="text">Task</label>
+    <input 
+      type="text" 
+      name="text" 
+      id="text" 
+      placeholder="Task Text" 
+      [(ngModel)] = "text"
+      style="width: 100%;"
+    >
+  </div>
+  <div class="form-control">
+    <label for="date">Day</label>
+    <input 
+      type="date" 
+      name="day" 
+      id="day" 
+      [(ngModel)] = "day"
+      style="width: 100%;"
+    >
+  </div>
+  <div style="margin: 20px 0">
+    <label for="checkbox" style="margin-right: 10px;">Reminder</label>
+    <input 
+      type="checkbox" 
+      name="reminder" 
+      id="reminder"
+      [(ngModel)] = "reminder"
+    >
+  </div>
+
+  <input type="submit" value="Save Task" class="btn" style="width: 100%;">
+</form>
