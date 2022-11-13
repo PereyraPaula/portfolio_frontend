@@ -40,3 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+sub_proyectos/task-list-angular-m3/node_modules/*
+sub_proyectos/task-list-angular-m3/.angular/cache
