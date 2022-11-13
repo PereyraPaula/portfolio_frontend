@@ -10,4 +10,8 @@ export class AuthService {
   logIn(credentials: Partial<LoginCredentials>): void {
     console.log('Logueado', credentials);
   }
+
+  register(credentials: Partial<LoginCredentials>): void {
+    console.log('Registrado', credentials);
+  }
 }

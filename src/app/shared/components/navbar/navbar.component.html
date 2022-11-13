@@ -1,30 +1,16 @@
 <nav class="navbar nav-bar">
   <div
     [className]="
-      currentRoute === '/login' ? 'imageCenter container' : 'container'
+      currentRoute ? 'imageCenter container' : 'container'
     ">
     <img src="./assets/img/arg-programa.png" class="img-arg" />
     <div
-      class="d-flex justify-content-end align-items-center box-actions"
-      *ngIf="currentRoute !== '/login'">
+      class="d-flex justify-content-end align-items-center box-actions" *ngIf="!currentRoute">
       <div class="d-flex align-items-center justify-content-end">
-        <i
-          *ngIf="isLogged"
-          (click)="addSocialLink(true)"
-          [className]="iconsList && 'text-primary mx-3 ' + iconsList[0].class">
-        </i>
-        <i
-          *ngIf="isLogged"
-          [className]="
-            iconsList && 'text-white mx-2 fs-4 ' + iconsList[2].class
-          "></i>
-        <i
-          *ngIf="isLogged"
-          [className]="
-            iconsList && 'mx-3 fs-4 text-white ' + iconsList[1].class
-          "></i>
+        <button (click)="addSocialLink(true)" class="btn bg-secondary rounded-circle border border-0">
+          <i class="fa-solid fa-globe text-white" ></i>
+        </button>
         <button
-          *ngIf="isLogged"
           type="button"
           class="btn btn-white rounded-circle border border-0"
           (click)="showModalEditData(true)">
@@ -39,7 +25,7 @@
           routerLink="/login"
           routerLinkActive="active"
           class="btn btn-danger border border-0 text-uppercase"
-          >{{ isLogged ? 'Cerrar Sesión' : 'Iniciar Sesión' }}</a
+          >Iniciar Sesión</a
         >
       </div>
     </div>
@@ -85,6 +71,10 @@
         <input type="text" class="form-control" id="name" />
       </div>
       <div class="mb-3">
+        <label for="name" class="form-label">Apellido</label>
+        <input type="text" class="form-control" id="name" />
+      </div>
+      <div class="mb-3">
         <label for="descripcion" class="form-label">Descripción</label>
         <textarea class="form-control" id="descripcion" rows="3"></textarea>
       </div>
@@ -100,20 +90,24 @@
   <div class="contentModal">
     <div>
       <div>
-        <p>Enlaces ya agregados:</p>
         <ul>
-          <li><a href="linkedin.com/">Linkedin</a></li>
-          <li><a href="github.com/">Github</a></li>
+          <li>Github: <a href="github.com/">Enlace</a></li>
+          <li>Linkedin: <a href="linkedin.com/">Enlace</a></li>
         </ul>
       </div>
-      <form>
-        <select class="form-select" name="miselect">
-          <option [value]="item.class" *ngFor="let item of iconsSelect">
-            {{ item.name | titlecase }}
-          </option>
-        </select>
-        <button type="submit" class="btn btn-success mt-3">Agregar</button>
-      </form>
+      <hr>
+      <div>
+        <h4>Añadir un nuevo enlace</h4>
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre de la plataforma:</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Enlace:</label>
+          <input type="text" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar</button>
+      </div>
     </div>
   </div>
 </app-dialog>

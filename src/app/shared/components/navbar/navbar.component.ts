@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
 import { DialogServiceService } from '../../services/dialog-service.service';
 import { icons } from '../../../utils/icons';
@@ -10,13 +10,11 @@ import { Icon } from '../../types/Icon';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  isLogged: boolean = true;
-  currentRoute: string;
-  //@Output() toggleModalChange: EventEmitter<any> = new EventEmitter();
+  currentRoute: string = '';
   toggleMProfileEdit: boolean = false;
   toggleMSocialAdd: boolean = false;
   titleModal: string = 'Editar datos personales';
-  titleModalRedes: string = 'Añadir enlaces de contacto';
+  titleModalRedes: string = 'Redes sociales';
   iconsList: Array<Icon> = icons;
   iconsSelect: Array<Icon> = [];
 

@@ -4,9 +4,10 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormExtensionsModule } from '../shared/modules/form-extensions/form-extensions.module';
 import { AppRoutingModule } from '../app-routing.module';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, RegisterComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
